@@ -10,19 +10,9 @@ module.exports = (grunt) ->
                     livereload: true
                 files: [
                     'index.html'
-                    'slides/*.md'
-                    'slides/*.html'
                     'js/*.js'
                     'css/*.css'
                 ]
-
-            index:
-                files: [
-                    'templates/_index.html'
-                    'templates/_section.html'
-                    'slides/list.json'
-                ]
-                tasks: ['buildIndex']
 
             coffeelint:
                 files: ['Gruntfile.coffee']
@@ -75,7 +65,6 @@ module.exports = (grunt) ->
                 files: [{
                     expand: true
                     src: [
-                        'slides/**'
                         'bower_components/**'
                         'js/**'
                         'css/*.css'
@@ -92,22 +81,6 @@ module.exports = (grunt) ->
     # Load all grunt tasks.
     require('load-grunt-tasks')(grunt)
 
-    grunt.registerTask 'buildIndex',
-        'Build index.html from templates/_index.html and slides/list.json.',
-        ->
-            indexTemplate = grunt.file.read 'templates/_index.html'
-            sectionTemplate = grunt.file.read 'templates/_section.html'
-            slides = grunt.file.readJSON 'slides/list.json'
-
-            html = grunt.template.process indexTemplate, data:
-                slides:
-                    slides
-                section: (slide) ->
-                    grunt.template.process sectionTemplate, data:
-                        slide:
-                            slide
-            grunt.file.write 'index.html', html
-
     grunt.registerTask 'test',
         '*Lint* javascript and coffee files.', [
             'coffeelint'
@@ -116,7 +89,6 @@ module.exports = (grunt) ->
 
     grunt.registerTask 'server',
         'Run presentation locally and start watch process (living document).', [
-            'buildIndex'
             'sass'
             'connect:livereload'
             'watch'
@@ -126,7 +98,6 @@ module.exports = (grunt) ->
         'Save presentation files to *dist* directory.', [
             'test'
             'sass'
-            'buildIndex'
             'copy'
         ]
 
