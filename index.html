@@ -27,6 +27,122 @@
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
+        
+        <style type="text/css">
+            .reveal .flexbox {
+                display: -webkit-box;
+                display: -moz-box;  
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;
+                
+                margin-bottom:10px;
+            }
+            
+            .flexbox * {
+                box-sizing:border-box;
+            }
+            
+            .flexbox>* {
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                -webkit-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+            }
+            
+            .flexbox li {
+                list-style:none;
+                margin: 10px;
+                
+                 -webkit-box-flex: none;
+                -webkit-flex: none;
+                -moz-box-flex: none;
+                -ms-flex: none;
+                flex: none;
+                
+                line-height: 48px;
+                vertical-align: top;
+            }
+            
+            .flexbox li img {
+                border: 0;
+                margin:0;
+            }
+            
+            .flexbox.column {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -moz-box-orient: vertical;
+                -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+            
+            .flexbox.wrap {
+                -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
+            
+            .flexbox.center {
+                -ms-flex-pack: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+            }
+            
+            .example-container {
+                min-height:100px;
+            }
+            
+            .example-container.grid {
+                margin:0;
+            }
+            
+            .example-container.grid .example-item{
+                margin:10px;
+            }
+            
+            .example-container .example-item {
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                -webkit-flex: 1;
+                -ms-flex: 1;
+                flex: 1;   
+                
+                font-size: 0.7em;
+                background: #ff9838;
+                margin: 20px;
+                padding:20px;
+            }
+            
+            .flexbox.wrap-100 > * {
+                -webkit-box-flex: 1 0 100px;
+                -moz-box-flex: 1 0 100px;
+                -webkit-flex: 1 0 100px;
+                -ms-flex: 1 0 100px;
+                flex: 1 0 100px;   
+            }
+            
+            .flexbox.wrap-400 > * {
+                -webkit-box-flex: 1 0 400px;
+                -moz-box-flex: 1 0 400px;
+                -webkit-flex: 1 0 400px;
+                -ms-flex: 1 0 400px;
+                flex: 1 0 400px;   
+            }
+            
+            .example-container .example-item.wide {
+                -webkit-box-flex: none;
+                -webkit-flex: none;
+                -moz-box-flex: none;
+                -ms-flex: none;
+                flex: none;
+                width: 50%;
+            }
+            
+        </style>
     </head>
 
     <body>
@@ -35,21 +151,244 @@
 
             <div class="slides">
 
+                <section data-background="images/masonry.jpg">
+                    <h1>Flexbox</h1>
+                    <p>A new CSS box model</p>
+                    <p>&nbsp;</p>
+                    <p>Johan Wallin</p>
+                    <p>github.com/jwallin</p>
+                </section>
                 
-                    
-                        
-            <section data-background="images/masonry.jpg">
-                <h1>Flexbox</h1>
-            </section>
-            
-            <section>
-                <h2>A new layout</h2>    
-            </section>
-
-
-                    
-                    
+                <section>
+                    <p>
+                        <code>display:flex;</code>
+                    </p>
+                </section>
                 
+                <section>
+                    <h2>Example</h2>
+                    <div class="flexbox example-container">
+                        <div class="example-item">
+                            I am pushing the container vertically, and the other two items next to me will get the same height even though they don't have as much content
+                        </div>
+                        <div class="example-item">hello</div>
+                        <div class="example-item">yo</div>
+                    </div>
+<pre><code>.example-container {
+    display: flex;
+}
+
+.example-item {
+    flex: 1;
+}
+</code></pre>
+                </section>
+                
+                <section>
+                    <h2>Example, again</h2>
+                    <div class="flexbox example-container">
+                        <div class="example-item">hello</div>
+                        <div class="example-item">yo</div>
+                        <div class="example-item wide">I'm wide.</div>
+                    </div>
+<pre><code>.example-container {
+    display: flex;
+}
+
+.example-item {
+    flex: 1;
+}
+
+.example-item-wide {
+    flex:none;
+    width:50%;
+}
+</code></pre>
+                </section>
+                
+                <section>
+                    <h2>Direction</h2>
+                    <a href="examples/direction.html" target="_blank">See example</a>
+<pre><code>.example-container {
+    display: flex;
+    flex-direction: column;
+}
+</code></pre>
+                </section>
+                
+                <section>
+                    <h2>Wrap</h2>
+                    <div class="flexbox example-container wrap wrap-100">
+                        <div class="example-item">1</div>
+                        <div class="example-item">2</div>
+                        <div class="example-item">3</div>
+                        <div class="example-item">4</div>
+                        <div class="example-item">5</div>
+                        <div class="example-item">6</div>
+                        <div class="example-item">7</div>
+                        <div class="example-item">8</div>
+                        <div class="example-item">9</div>
+                        <div class="example-item">10</div>
+                    </div>
+<pre><code>.example-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+</code></pre>
+                </section>
+                
+                <section>
+                    <h2>What's in this for me?</h2>
+                </section>
+                
+                <section>
+                    <h2>Grids</h2>
+                    <div class="flexbox example-container grid">
+                        <div class="example-item">1</div>
+                        <div class="example-item">2</div>
+                        <div class="example-item">3</div>
+                        <div class="example-item">4</div>
+                    </div>
+                    <div class="flexbox example-container grid">
+                        <div class="example-item">5</div>
+                        <div class="example-item">6</div>
+                    </div>
+                    <div class="flexbox example-container grid">
+                        <div class="example-item">7</div>
+                        <div class="example-item">8</div>
+                        <div class="example-item">9</div>
+                    </div>
+                    <div class="flexbox example-container grid">
+                        <div class="example-item">10</div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>Sticky footer</h2>
+                    <a href="examples/index.html" target="_blank">See example</a>
+<pre><code>body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex:1;
+}
+
+footer {
+}
+</code></pre>
+                </section>
+                
+                <section>
+                    <h2>Vertical centering</h2>
+                    <a href="examples/vertical-center.html" target="_blank">See example</a>
+<pre><code>
+main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</code></pre>
+                </section>
+                
+                <section>
+                    <h2>Holy Grail</h2>
+                </section>
+                
+                <section>
+                    <h2>Browser support</h2>
+                    <p>
+                        <code>display:flex;</code>
+                        <ul class="flexbox center">
+                            <li><img src="images/browser-logos/chrome_48x48.png"></li>
+                            <li><img src="images/browser-logos/firefox_48x48.png"></li>
+                            <li><img src="images/browser-logos/opera_48x48.png"> 12+</li>
+                            <li><img src="images/browser-logos/ie9-10_48x48.png"> 11+</li>
+                        </ul>
+                    </p>
+                </section>
+                
+                <section>
+                    <h2>Browser support</h2>
+                    <p>
+                        <code>    
+                            display: -webkit-box;<br/>
+                            display: -webkit-flex; <br/>    
+                            display: -moz-box;    <br/>
+                            display: -ms-flexbox; <br/>    
+                            display: flex; <br/>
+                        </code>
+                        <ul class="flexbox center">
+                            <li><img src="images/browser-logos/chrome_48x48.png"></li>
+                            <li><img src="images/browser-logos/firefox_48x48.png"></li>
+                            <li><img src="images/browser-logos/opera_48x48.png"> 12+</li>
+                            <li><img src="images/browser-logos/ie9-10_48x48.png"> 10+</li>
+                            <li><img src="images/browser-logos/safari_48x48.png"></li>
+                            <li><img src="images/browser-logos/safari-ios-7_48x48.png"></li>
+                        </ul>
+                    </p>
+                </section>
+        
+                <section>
+                    <h2>Vendor-specific attributes</h2>
+                    <div class="flexbox wrap wrap-400">
+                        <div class="flexbox column">
+                            <code>display:flex</code>
+<pre><code>display: -webkit-box;
+display: -webkit-flex;     
+display: -moz-box;    
+display: -ms-flexbox; 
+display: flex;</code></pre>
+                        </div>
+                        <div class="flexbox column">
+                            <code>flex:1</code>
+<pre><code>-webkit-box-flex: 1;
+-moz-box-flex: 1;
+-webkit-flex: 1;
+-ms-flex: 1;
+flex: 1;</code></pre>
+                        </div>
+                        <div class="flexbox column">
+                            <code>flex-wrap: wrap</code>
+<pre><code>-ms-flex-wrap: wrap;
+-webkit-flex-wrap: wrap;
+flex-wrap: wrap;</code></pre>
+                        </div>
+                        <div class="flexbox column">
+                            <code>justify-content: center;</code>
+<pre><code>-ms-flex-pack: center;
+-webkit-justify-content: center;
+justify-content: center;</code></pre>
+                        </div>
+                        <div class="flexbox column">
+                            <code>flex-direction: column</code>
+<pre><code>-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-webkit-flex-direction: column;
+-moz-box-orient: vertical;
+-moz-box-direction: normal;
+-ms-flex-direction: column;
+flex-direction: column;</code></pre>
+                        </div>
+                    </div>
+                    
+                </section>
+        
+                <section>
+                    <h2>Can I use this today?</h2>
+                    <div class="fragment">
+                        <h1>Yes</h1>
+                        <img src="images/modernizr.png">
+                    </div>
+                </section>
+        
+                <section>
+                    <h2>Resources</h2>
+                    <p><a href="http://www.w3.org/TR/css3-flexbox/" target="_blank">http://www.w3.org/TR/css3-flexbox/</a></p>
+                    <p><a href="http://css-tricks.com/using-flexbox/" target="_blank">http://css-tricks.com/using-flexbox/</a></p>
+                    <p><a href="http://philipwalton.github.io/solved-by-flexbox/" target="_blank">http://philipwalton.github.io/solved-by-flexbox/</a></p>
+                </section>
             </div>
 
         </div>
@@ -84,7 +423,7 @@
                 ]
             });
         </script>
-
+        
     </body>
 
 </html>
