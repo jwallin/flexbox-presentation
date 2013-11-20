@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flexbox Examples</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto:700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style type="text/css">
+            .main {}
+            .flexbox-container {
+                display: -webkit-box;
+                display: -moz-box;  
+                display: -ms-flexbox;
+                display: -webkit-flex;
+                display: flex;  
+                
+                -webkit-flex-wrap: wrap;
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
+            
+            .flexbox-container * {
+                box-sizing:border-box;
+            }
+            
+            .example-container .example-item {
+                -webkit-box-flex: 1 0 200px;
+                -moz-box-flex: 1 0 200px;
+                -webkit-flex: 1 0 200px;
+                -ms-flex: 1 0 200px;
+                flex: 1 0 200px;   
+                
+                background: #334455;
+                color: #fff;
+                font-weight:700;
+                margin: 10px;
+                padding: 20px;
+                text-align:center;
+            }
+            
+            .example-container button {
+                -webkit-box-flex: 1 0 100%;
+                -moz-box-flex: 1 0 100%;
+                -webkit-flex: 1 0 100%;
+                -ms-flex: 1 0 100%;
+                flex: 1 0 100%;
+                
+                height:40px;
+            }
+            
+        </style>
+    </head>
+    <body>
+		<main role="main">
+        	<h2>Wrap</h2>
+            
+            
+            <div class="flexbox-container example-container">
+                <button id="newItemButton">New item</button>
+                <div class="example-item">1</div>
+                <div class="example-item">2</div>
+                <div class="example-item">3</div>
+                <div class="example-item">4</div>
+                <div class="example-item">5</div>
+                <div class="example-item">6</div>
+                <div class="example-item">7</div>
+                <div class="example-item">8</div>
+            </div>
+		</main>
+		<footer>This is my sticky footer.</footer>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
+        <script>
+            $(document).ready(function() {
+                $("#newItemButton").on('click', function(e) {
+                    var num = $(".example-container").children().length + 1;
+                    var newItem = $("<div></div>").addClass("example-item").text(num);
+                    $(".example-container").append(newItem);
+                });    
+            });
+        </script>
+    </body>
+</html>
