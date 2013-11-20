@@ -62,7 +62,6 @@
             }
             
         </style>
-        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
 		<main role="main">
@@ -83,13 +82,11 @@
 		<footer>This is my sticky footer.</footer>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
-        <script src="js/main.js"></script>
         <script>
             $(document).ready(function() {
                 $("#flexDirectionSelector").on('change', function(e) {
                     var directionValue = $(this).val();
                     $("#flexDirectionContainer").css("flex-direction", directionValue);
-                    $(document).resize();
                 });    
             });
         </script>

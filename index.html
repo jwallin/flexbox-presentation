@@ -68,6 +68,8 @@
             .flexbox li img {
                 border: 0;
                 margin:0;
+                background: none;
+                box-shadow:none;
             }
             
             .flexbox.column {
@@ -118,11 +120,11 @@
             }
             
             .flexbox.wrap-100 > * {
-                -webkit-box-flex: 1 0 100px;
-                -moz-box-flex: 1 0 100px;
-                -webkit-flex: 1 0 100px;
-                -ms-flex: 1 0 100px;
-                flex: 1 0 100px;   
+                -webkit-box-flex: 1 1 100px;
+                -moz-box-flex: 1 1 100px;
+                -webkit-flex: 1 1 100px;
+                -ms-flex: 1 1 100px;
+                flex: 1 1 100px;   
             }
             
             .flexbox.wrap-400 > * {
@@ -234,7 +236,12 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.example-item {
+    flex: 1 0 100px;
+}
 </code></pre>
+                <a href="examples/wrap.html" target="_blank">See example</a>
                 </section>
                 
                 <section>
