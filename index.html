@@ -158,7 +158,7 @@
                     <p>A new CSS box model</p>
                     <p>&nbsp;</p>
                     <p>Johan Wallin</p>
-                    <p>github.com/jwallin</p>
+                    <p>2013-11-20</p>
                 </section>
                 
                 <section>
@@ -249,6 +249,11 @@
                 </section>
                 
                 <section>
+                    <h2>Responsive design</h2>
+                    <h3>(obviously)</h3>
+                </section>
+                
+                <section>
                     <h2>Grids</h2>
                     <div class="flexbox example-container grid">
                         <div class="example-item">1</div>
@@ -301,6 +306,33 @@ main {
                 
                 <section>
                     <h2>Holy Grail</h2>
+                    <p>
+                        <a href="examples/holy-grail.html" target="_blank">Example</a>
+                    </p>
+<pre><code>&lt;body class="holy-grail"&gt;
+    &lt;header&gt;Header&lt;/header&gt;
+    &lt;div class="content"&gt;
+        &lt;main role="main"&gt;Main&lt;/main&gt;
+        &lt;nav&gt;Navigation&lt;/nav&gt;
+        &lt;aside&gt;Sidebar&lt;/aside&gt;
+    &lt;/div&gt;
+    &lt;footer&gt;Footer&lt;/footer&gt;
+&lt;/body&gt;
+</code></pre>
+<pre><code>.holy-grail {
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    display: flex;
+    flex: 1;
+} 
+aside, nav { flex: 0 0 10em; }
+nav { order: -1; }</code></pre>
+                    <p>
+                        <a href="http://alistapart.com/article/holygrail" target="_blank">(background information)</a>
+                    </p>
+                    
                 </section>
                 
                 <section>
@@ -392,9 +424,14 @@ flex-direction: column;</code></pre>
         
                 <section>
                     <h2>Resources</h2>
+                    <p><a href="https://github.com/jwallin/flexbox-slides" target="_blank">https://github.com/jwallin/flexbox-slides</a></p>
                     <p><a href="http://www.w3.org/TR/css3-flexbox/" target="_blank">http://www.w3.org/TR/css3-flexbox/</a></p>
                     <p><a href="http://css-tricks.com/using-flexbox/" target="_blank">http://css-tricks.com/using-flexbox/</a></p>
                     <p><a href="http://philipwalton.github.io/solved-by-flexbox/" target="_blank">http://philipwalton.github.io/solved-by-flexbox/</a></p>
+                </section>
+                
+                <section>
+                    <h2>Thank you.</h2>
                 </section>
             </div>
 
