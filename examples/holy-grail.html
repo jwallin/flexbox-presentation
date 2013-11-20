@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Flexbox Examples</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<link href='http://fonts.googleapis.com/css?family=Roboto:700,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+        <style type="text/css">
+            body.holy-grail {
+                -webkit-box-orient: vertical;
+                -webkit-box-direction: normal;
+                -webkit-flex-direction: column;
+                -moz-box-orient: vertical;
+                -moz-box-direction: normal;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+            
+            header {
+                padding:1.5em;
+                background: #dfd;
+            }
+            
+            .holy-grail .content {
+                display: -webkit-box;
+                display: -webkit-flex;    
+                display: -moz-box;    
+                display: -ms-flexbox;    
+                display: flex;
+                
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                -webkit-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+            }
+            
+            
+            main {
+              /* Important stuff: */
+                -webkit-box-flex: 1;
+                -moz-box-flex: 1;
+                -webkit-flex: 1;
+                -ms-flex: 1;
+                flex: 1;
+            }
+    
+            nav, aside {
+              flex: 0 0 10em;
+              background: #aae; 
+              padding: 10px;
+            }
+            
+            nav {
+                order: -1;
+            }
+            
+		</style>
+    </head>
+    <body class="holy-grail">
+        <header>
+            <h1>Hello, I'm a header</h1>
+        </header>
+        <div class="content">
+            <main role="main">
+                <p>This is my short body</p>
+            </main>
+            <nav>Navigation</nav>
+            <aside>Sidebar</aside>
+        </div>
+		<footer>This is a sticky footer. It will stick to the bottom of the page, no matter the page height. </footer>
+    </body>
+</html>
